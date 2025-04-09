@@ -7,7 +7,8 @@ public class Lista<v> {
 
     //constructor
     public Lista() {
-        primero = new Elemento<>(null);
+        primero = null;
+        N_elementos = 0;
     }
 
     //metodo

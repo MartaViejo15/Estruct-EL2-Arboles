@@ -2,11 +2,11 @@ package Sofia;
 
 public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
     //atributo
-    private NodoBinarioDeBusqueda<v> raiz;
+    protected NodoBinarioDeBusqueda<v> raiz;
 
     //constructor
     public ArbolBinarioDeBusqueda() {
-        this.raiz = new NodoBinarioDeBusqueda<>(null);
+        this.raiz = null;
     }
 
     //metodos
@@ -35,52 +35,70 @@ public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
     }
 
     public Boolean isArbolHomogeneo(){
-        boolean res = true;
-        homogeneo(raiz.getGrado(), raiz, res);
-        return res;
+        if(this.raiz == null){
+            return false;
+        }
+        Lista<v> l = new Lista<>();
+        homogeneo(raiz.getGrado(), raiz, l);
+        return l.N_elementos==0;
     }
 
-    private void homogeneo(int n, NodoBinarioDeBusqueda<v> nodo, Boolean res){
+    private void homogeneo(int n, NodoBinarioDeBusqueda<v> nodo, Lista<v> l) {
         if(nodo.getGrado()!=0){
             if(nodo.getGrado() != n){
-                res = false;
+                l.add(nodo.elemento);
             }else{
-                homogeneo(n, nodo.Menor, res);
-                homogeneo(n, nodo.Mayor, res);
+                if(nodo.Menor != null){
+                homogeneo(n, nodo.Menor, l);
+                }if(nodo.Mayor != null){
+                homogeneo(n, nodo.Mayor, l);}
             }
         }
     }
 
     public boolean isArbolCompleto(){
-        boolean res = true;
+        if(this.raiz == null){
+            return false;
+        }
+        Lista<v> res = new Lista<>();
         Completo(this,res);
-        return res;
+        return res.N_elementos==0;
     }
 
     public Boolean isArbolCasiCompleto(){
-        boolean res = true;
+        if(this.raiz == null){
+            return false;
+        }
+        Lista<v> res = new Lista<>();
         CasiCompleto(this,res);
-        return res;
+        return res.N_elementos!=0;
     }
 
-    private void Completo(ArbolBinarioDeBusqueda<v> arbol, boolean c){
+    private void Completo(ArbolBinarioDeBusqueda<v> arbol, Lista<v> res) {
         if(arbol.raiz.getGrado()!=0){
-            if(arbol.getSubArbolDerecha().getAltura()!=arbol.getSubArbolIzquierda().getAltura()){
-                c = false;
+            if(arbol.raiz.getGrado() == 2 && arbol.getSubArbolDerecha().getAltura()!=arbol.getSubArbolIzquierda().getAltura()){
+                res.add(arbol.raiz.elemento);
             }else{
-                Completo(arbol.getSubArbolDerecha(),c);
-                Completo(arbol.getSubArbolIzquierda(),c);
+                if(arbol.getSubArbolDerecha() != null) {
+                    Completo(arbol.getSubArbolDerecha(), res);
+                }if(arbol.getSubArbolIzquierda() != null) {
+                    Completo(arbol.getSubArbolIzquierda(), res);
+                }
             }
         }
     }
-    private void CasiCompleto(ArbolBinarioDeBusqueda<v> arbol, boolean cc){
+    private void CasiCompleto(ArbolBinarioDeBusqueda<v> arbol, Lista<v> res) {
         if(arbol.raiz.getGrado()!=0){
-            if(arbol.getSubArbolDerecha().getAltura()-1 != arbol.getSubArbolIzquierda().getAltura() ||
-                    arbol.getSubArbolDerecha().getAltura() != arbol.getSubArbolIzquierda().getAltura()-1){
-                cc = false;
+            if(arbol.raiz.getGrado() == 2 &&
+                    arbol.getSubArbolDerecha().getAltura()-1 == arbol.getSubArbolIzquierda().getAltura() ||
+                    arbol.getSubArbolDerecha().getAltura() == arbol.getSubArbolIzquierda().getAltura()-1){
+                res.add(arbol.raiz.elemento);
             }else {
-                CasiCompleto(arbol.getSubArbolDerecha(),cc);
-                CasiCompleto(arbol.getSubArbolIzquierda(),cc);
+                if(arbol.getSubArbolDerecha() != null) {
+                    CasiCompleto(arbol.getSubArbolDerecha(),res);
+                }if(arbol.getSubArbolIzquierda() != null) {
+                    CasiCompleto(arbol.getSubArbolIzquierda(),res);
+                }
             }
         }
     }
@@ -151,12 +169,18 @@ public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
     }
 
     public ArbolBinarioDeBusqueda<v> getSubArbolIzquierda() {
+        if(raiz == null || raiz.Menor == null){
+            return null;
+        }
         ArbolBinarioDeBusqueda<v> iz = new ArbolBinarioDeBusqueda<>();
         iz.raiz = this.raiz.Menor;
         return iz;
     }
 
     public ArbolBinarioDeBusqueda<v> getSubArbolDerecha() {
+        if(raiz == null || raiz.Mayor == null){
+            return null;
+        }
         ArbolBinarioDeBusqueda<v> der = new ArbolBinarioDeBusqueda<>();
         der.raiz = this.raiz.Mayor;
         return der;
