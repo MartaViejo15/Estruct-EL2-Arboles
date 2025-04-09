@@ -35,30 +35,54 @@ public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
     }
 
     public Boolean isArbolHomogeneo(){
-        if(raiz.getGrado() == 0){
-            return true;
-        }
-        Boolean res = true;
-        homogeneo(raiz.getGrado(), this,res);
+        boolean res = true;
+        homogeneo(raiz.getGrado(), raiz, res);
         return res;
     }
 
-    private void homogeneo(int n,ArbolBinarioDeBusqueda<v> arbol, Boolean res){
-        if(arbol.raiz.getGrado()!=0){
-            if(arbol.raiz.getGrado() != n){
+    private void homogeneo(int n, NodoBinarioDeBusqueda<v> nodo, Boolean res){
+        if(nodo.getGrado()!=0){
+            if(nodo.getGrado() != n){
                 res = false;
+            }else{
+                homogeneo(n, nodo.Menor, res);
+                homogeneo(n, nodo.Mayor, res);
             }
-            homogeneo(n,getSubArbolDerecha(),res);
-            homogeneo(n,getSubArbolIzquierda(),res);
         }
     }
 
-    public Boolean isArbolCompleto(){
-        return raiz.getGrado() == 0 || getSubArbolDerecha().getAltura()==getSubArbolIzquierda().getAltura();
+    public boolean isArbolCompleto(){
+        boolean res = true;
+        Completo(this,res);
+        return res;
     }
 
     public Boolean isArbolCasiCompleto(){
-        return raiz.getGrado() == 0 || getSubArbolDerecha().getAltura()-1==getSubArbolIzquierda().getAltura() || getSubArbolDerecha().getAltura()==getSubArbolIzquierda().getAltura()-1;
+        boolean res = true;
+        CasiCompleto(this,res);
+        return res;
+    }
+
+    private void Completo(ArbolBinarioDeBusqueda<v> arbol, boolean c){
+        if(arbol.raiz.getGrado()!=0){
+            if(arbol.getSubArbolDerecha().getAltura()!=arbol.getSubArbolIzquierda().getAltura()){
+                c = false;
+            }else{
+                Completo(arbol.getSubArbolDerecha(),c);
+                Completo(arbol.getSubArbolIzquierda(),c);
+            }
+        }
+    }
+    private void CasiCompleto(ArbolBinarioDeBusqueda<v> arbol, boolean cc){
+        if(arbol.raiz.getGrado()!=0){
+            if(arbol.getSubArbolDerecha().getAltura()-1 != arbol.getSubArbolIzquierda().getAltura() ||
+                    arbol.getSubArbolDerecha().getAltura() != arbol.getSubArbolIzquierda().getAltura()-1){
+                cc = false;
+            }else {
+                CasiCompleto(arbol.getSubArbolDerecha(),cc);
+                CasiCompleto(arbol.getSubArbolIzquierda(),cc);
+            }
+        }
     }
 
     public Lista<v> getCamino(NodoBinarioDeBusqueda<v> destino){
