@@ -11,16 +11,14 @@ public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
 
     //metodos
     public int getAltura() {
-        Lista<v> lista = getListaOrdenCentral();
-        int altura = 0;
-        while (lista.primero != null) {
-            Lista<v> camino = getCamino(new NodoBinarioDeBusqueda<>(lista.primero.dato));
-            if (camino.N_elementos > altura) {
-                altura = camino.N_elementos;
-            }
-            lista.primero = lista.primero.siguiente;
+        int altura = 1;
+        if (this.raiz == null) {
+            return 0;
         }
-        return altura;
+        while(getListaDatosNivel(altura).N_elementos != 0){
+            altura += 1;
+        }
+        return altura-1;
     }
 
     public Lista<v> getListaDatosNivel(int nivel){
@@ -34,6 +32,33 @@ public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
             datos.primero = datos.primero.siguiente;
         }
         return res;
+    }
+
+    public Boolean isArbolHomogeneo(){
+        if(raiz.getGrado() == 0){
+            return true;
+        }
+        Boolean res = true;
+        homogeneo(raiz.getGrado(), this,res);
+        return res;
+    }
+
+    private void homogeneo(int n,ArbolBinarioDeBusqueda<v> arbol, Boolean res){
+        if(arbol.raiz.getGrado()!=0){
+            if(arbol.raiz.getGrado() != n){
+                res = false;
+            }
+            homogeneo(n,getSubArbolDerecha(),res);
+            homogeneo(n,getSubArbolIzquierda(),res);
+        }
+    }
+
+    public Boolean isArbolCompleto(){
+        return raiz.getGrado() == 0 || getSubArbolDerecha().getAltura()==getSubArbolIzquierda().getAltura();
+    }
+
+    public Boolean isArbolCasiCompleto(){
+        return raiz.getGrado() == 0 || getSubArbolDerecha().getAltura()-1==getSubArbolIzquierda().getAltura() || getSubArbolDerecha().getAltura()==getSubArbolIzquierda().getAltura()-1;
     }
 
     public Lista<v> getCamino(NodoBinarioDeBusqueda<v> destino){
@@ -99,6 +124,18 @@ public class ArbolBinarioDeBusqueda<v extends Comparable<v>> {
             aux.Mayor = new NodoBinarioDeBusqueda<>(elemento);
         }
 
+    }
+
+    public ArbolBinarioDeBusqueda<v> getSubArbolIzquierda() {
+        ArbolBinarioDeBusqueda<v> iz = new ArbolBinarioDeBusqueda<>();
+        iz.raiz = this.raiz.Menor;
+        return iz;
+    }
+
+    public ArbolBinarioDeBusqueda<v> getSubArbolDerecha() {
+        ArbolBinarioDeBusqueda<v> der = new ArbolBinarioDeBusqueda<>();
+        der.raiz = this.raiz.Mayor;
+        return der;
     }
 
     private NodoBinarioDeBusqueda<v> buscarNodo(v elemBuscado, NodoBinarioDeBusqueda<v> nodo, Lista<v> lista) {
