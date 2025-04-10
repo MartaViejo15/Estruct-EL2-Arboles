@@ -2,8 +2,8 @@ package Marta;
 
 public class NodoArbolBinarioBusqueda<v> {
     protected v valor;
-    private NodoArbolBinarioBusqueda<v> menor;
-    private NodoArbolBinarioBusqueda<v> mayor;
+    protected NodoArbolBinarioBusqueda<v> menor;
+    protected NodoArbolBinarioBusqueda<v> mayor;
 
     public NodoArbolBinarioBusqueda(v valor) {
         this.valor = valor;

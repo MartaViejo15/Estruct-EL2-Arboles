@@ -1,7 +1,7 @@
 package Marta;
 
 public class ArbolBinarioBusqueda <v extends Comparable<v>> {
-    private NodoArbolBinarioBusqueda<v> raiz;
+    protected NodoArbolBinarioBusqueda<v> raiz;
 
     public ArbolBinarioBusqueda() {
         this.raiz = new NodoArbolBinarioBusqueda<v>(null);
@@ -77,8 +77,72 @@ public class ArbolBinarioBusqueda <v extends Comparable<v>> {
     private void PostOrden(NodoArbolBinarioBusqueda<v> nodo, Lista<v> lista){
         if (nodo != null){
             PostOrden(nodo.getMenor(), lista);
-            PostOrden(nodo.getMayor(), lista);}
+            PostOrden(nodo.getMayor(), lista);
             lista.add(nodo.valor);
+        }
+    }
+    public Lista<v> getListaDatosNivel(int numDatos){
+        Lista<v> ListaDatos = new Lista<>();
+        getDatosNivel(raiz, 0, numDatos, ListaDatos);
+        return ListaDatos;
+    }
+    private void getDatosNivel(NodoArbolBinarioBusqueda<v> nodo, int actual, int destino, Lista<v> lista){
+        if (nodo == null){
+            return;
+        } else if (actual == destino){
+            lista.add(nodo.valor);
+        } else {
+            getDatosNivel(nodo.getMenor(), actual + 1, destino, lista);
+            getDatosNivel(nodo.getMayor(), actual + 1, destino, lista);
+        }
+    }
+
+    /*
+    public boolean isArbolCompleto(){
+        return esCompleto(raiz, 0, ContarNodos(raiz));
+    }
+    private boolean esCompleto(NodoArbolBinarioBusqueda<v> nodo, int i, int total){
+        if (nodo == null || nodo.valor == null){
+            return true;
+        } else if (i >= total){
+            return false;
+        }
+        return esCompleto(nodo.getMenor(), 2);
+    }
+    private int ContarNodos(NodoArbolBinarioBusqueda<v> nodo){
+        int contadorNodos = 0;
+
+    }
+
+    public boolean isArbolCasiCompleto(){
+
+    }
+     */
+
+
+    public void add(v valor){
+        raiz = insertar(raiz, valor);
+    }
+    public NodoArbolBinarioBusqueda<v> insertar(NodoArbolBinarioBusqueda<v> nodo, v valor){
+        if (nodo == null || nodo.valor == null){
+            return new NodoArbolBinarioBusqueda<>(valor);
+        } else if (valor.compareTo(nodo.valor) < 0){
+            nodo.menor = insertar(nodo.getMenor(), valor);
+        } else {
+            nodo.mayor = insertar(nodo.getMayor(), valor);
+        }
+        return nodo;
+    }
+
+    public ArbolBinarioBusqueda<v> getSubArbolIzquierda(){
+        ArbolBinarioBusqueda<v> subarbol = new ArbolBinarioBusqueda<>();
+        subarbol.raiz = raiz.getMenor();
+        return subarbol;
+    }
+    public ArbolBinarioBusqueda<v> getSubArbolDerecha(){
+        ArbolBinarioBusqueda<v> subarbol = new ArbolBinarioBusqueda<>();
+        subarbol.raiz = raiz.getMayor();
+        return subarbol;
     }
 
 
