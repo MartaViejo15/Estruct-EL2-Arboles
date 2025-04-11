@@ -42,7 +42,9 @@ public class Prueba1 {
 
         //4
         ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
+/*
         i = i.convertir(arbolito.getSubArbolIzquierda());
+
         if(i != null){
             System.out.println("La suma de subarbol izquierdo es " + i.getSuma());
         }else{
@@ -55,6 +57,10 @@ public class Prueba1 {
         }else{
             System.out.println("La suma de subarbol derecho es " + 0);
         }
+
+        Lo pongo como comentario, porque al no haber subarbol izquierdo, debido a que como los elementos se colocan
+        de mayor a menor,, i va a ser nulo y va a dar error en el codigo, entonces no va a continuar
+*/
 
 
         /*La suma no da lo mismo, pues al meter los numeros en orden (de menor a mayor), solo metera por lado mayor (derecha),

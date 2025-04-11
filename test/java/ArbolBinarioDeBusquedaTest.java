@@ -15,8 +15,11 @@ class ArbolBinarioDeBusquedaTest {
     @Test
     void getCamino() {
         ArbolBinarioDeBusqueda<Integer> arbol = new ArbolBinarioDeBusqueda<>();
-        Lista<Integer> l = arbol.getCamino(null);
         arbol.add(0);
+        arbol.getCamino(new NodoBinarioDeBusqueda<>(8));
+        arbol.add(3);
+        arbol.add(2);
+        arbol.getCamino(new NodoBinarioDeBusqueda<>(1));
         arbol.add(5);
         arbol.add(-1);
         arbol.add(8);
@@ -24,6 +27,13 @@ class ArbolBinarioDeBusquedaTest {
         while(c.primero != null) {
             System.out.println(c.primero.dato);
             c.primero=c.primero.siguiente;
+        }
+        Lista<Integer> c2 = arbol.getCamino(new NodoBinarioDeBusqueda<>(2));
+        while(c2.primero != null) {
+            System.out.println(c2.primero.dato);
+            c2.primero=c2.primero.siguiente;
+
+
         }
     }
 
@@ -133,11 +143,10 @@ class ArbolBinarioDeBusquedaTest {
         arbol.add(8);
         assertFalse(arbol.isArbolCompleto());
     }
-/*
+
     @Test
     void isArbolCasiCompleto() {
         ArbolBinarioDeBusqueda<Integer> arbol = new ArbolBinarioDeBusqueda<>();
-        assertFalse(arbol.isArbolCasiCompleto());
         arbol.add(10);
         arbol.add(5);
         arbol.add(15);
@@ -147,8 +156,7 @@ class ArbolBinarioDeBusquedaTest {
         assertTrue(arbol.isArbolCasiCompleto());
         arbol.add(13);
         assertFalse(arbol.isArbolCasiCompleto());
-
-    }*/
+    }
 
     @Test
     void add() {
