@@ -66,13 +66,13 @@ public class Prueba2 {
         }else{
             System.out.println("La suma de subarbol derecho es " + 0);
         }
-        /*La suma de los subarboles salen cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
-        los arboles que obtenemos cada vez al ejecutarlo seran diferentes. */
+        /*La suma de los subárboles salen cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
+        los árboles que obtenemos cada vez al ejecutarlo serán diferentes. */
 
         //5
         System.out.println("La altura del arbol es " + a.getAltura());
-        /*La altura del arbol sale cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
-        los arboles que obtenemos cada vez al ejecutarlo seran diferentes. */
+        /*La altura del árbol sale cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
+        los árboles que obtenemos cada vez al ejecutarlo serán diferentes. */
 
         //6
         System.out.print("El camino para llegar al valor 110 es ");
@@ -84,5 +84,23 @@ public class Prueba2 {
             camino.primero = camino.primero.siguiente;
         }
         System.out.println(", y su longitud de camino es " + longitud);
+
+        /*
+        Explique las diferencias (si las ha habido) de los resultados obtenidos entre los dos programas de prueba.
+        La suma en ambos casos es la misma, puesto que tenemos los mismos datos (los números de 0 a 128).
+        La suma de los subárboles de izquierda y derecha va a ser la misma únicamente en el caso en el que en la prueba2, los
+        datos que se generan aleatoriamente se generen justo en orden, del 0 al 128.
+        En cuanto a la altura va a pasar lo mismo que con la suma de los subárboles, ya que la altura va a ser la misma si el
+        árbol está en orden de 0 a 128, pero en este caso también se daría la misma altura en caso de que el árbol se haya
+        generado con los números aleatorios desde el 128 al 0.
+        El camino va a ser siempre distinto, puesto que al generar los números de forma aleatoria siempre va a ser distinto,
+        pero nos encontramos en un caso igual a los dos anteriores, si se ha generado de forma aleatoria y coincide que están
+        ordenados, el camino hasta llegar al 110 continuará siendo el mismo. La longitud será, al igual, distinta.
+
+        ¿Qué sucede con los resultados si ejecuta los programas de prueba varias veces?
+        La primera siempre será igual, mientras que las demás irán cambiando dependiendo del orden aleatorio en el que se metan
+        los números.
+         */
+
     }
 }
