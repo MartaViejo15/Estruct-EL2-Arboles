@@ -36,4 +36,10 @@ public class ArbolBinarioDeBusquedaEnteros extends ArbolBinarioDeBusqueda<Intege
         }
         return suma;
     }
+
+    public ArbolBinarioDeBusquedaEnteros convertir(ArbolBinarioDeBusqueda<Integer> arb) {
+        ArbolBinarioDeBusquedaEnteros arbBinario = new ArbolBinarioDeBusquedaEnteros();
+        arbBinario.raiz = arb.raiz;
+        return arbBinario;
+    }
 }

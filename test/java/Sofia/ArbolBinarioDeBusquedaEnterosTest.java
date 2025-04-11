@@ -20,7 +20,7 @@ class ArbolBinarioDeBusquedaEnterosTest {
         a.add(1);
         a.add(2);
         a.add(3);
-        assertEquals(6,a.getSuma_PostOrden());
+        assertEquals(6,a.getSuma_PreOrden());
     }
 
     @Test

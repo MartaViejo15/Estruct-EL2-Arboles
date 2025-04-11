@@ -13,4 +13,21 @@ class ListaTest {
         assertTrue(lista.add(2));
         assertTrue(lista.add(3));
     }
+
+    @Test
+    void delete() {
+        Lista<String> lista = new Lista<>();
+        lista.add("no");
+        lista.add("si");
+        lista.add("oh");
+        lista.add("fla");
+        lista.add("mo");
+        assertTrue(lista.delete("no"));
+        assertTrue(lista.delete("fla"));
+        assertTrue(lista.delete("mo"));
+        assertTrue(lista.delete("si"));
+        assertFalse(lista.delete("no"));
+        assertTrue(lista.delete("oh"));
+        assertFalse(lista.delete("fla"));
+    }
 }

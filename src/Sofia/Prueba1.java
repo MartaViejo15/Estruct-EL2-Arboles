@@ -9,17 +9,27 @@ public class Prueba1 {
         }
 
         //2,3
-        System.out.println("La suma es" + a.getSuma_PreOrden() + "en preorden");
-        System.out.println("La suma es" + a.getSuma_OrdenCentral() + "en orden central");
-        System.out.println("La suma es" + a.getSuma_PostOrden() + "en postorden");
+        System.out.println("La suma es " + a.getSuma_PreOrden() + " en preorden");
+        System.out.println("La suma es " + a.getSuma_OrdenCentral() + " en orden central");
+        System.out.println("La suma es " + a.getSuma_PostOrden() + " en postorden");
 
         //4
-        ArbolBinarioDeBusqueda<Integer> iz = a.getSubArbolIzquierda();
-        ArbolBinarioDeBusquedaEnteros i = (ArbolBinarioDeBusquedaEnteros)iz;
-        System.out.println("La suma de subarbol izquierdo es" + i.getSuma_PreOrden() + "en preorden");
-        ArbolBinarioDeBusqueda<Integer> der = a.getSubArbolDerecha();
-        ArbolBinarioDeBusquedaEnteros d = (ArbolBinarioDeBusquedaEnteros)der;
-        System.out.println("La suma de subarbol izquierdo es" + d.getSuma_PreOrden() + "en preorden");
+        ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
+        i = i.convertir(a.getSubArbolIzquierda());
+        if(i != null){
+            System.out.println("La suma de subarbol izquierdo es " + i.getSuma_PreOrden() + " en preorden");
+        }else{
+            System.out.println("La suma de subarbol izquierdo es " + 0);
+        }
+        ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
+        d = d.convertir(a.getSubArbolDerecha());
+        if(i != null){
+            System.out.println("La suma de subarbol derecho es" + d.getSuma_PreOrden() + "en preorden");
+        }else{
+            System.out.println("La suma de subarbol derecho es" + 0);
+        }
+        /*La suma no da lo mismo, pues al meter los numeros en orden (de menor a mayor), solo metera por lado mayor (derecha),
+         donde por izquierda no habra nada. */
 
         //5
         System.out.println("La altura del arbol es" + a.getAltura());
