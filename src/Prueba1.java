@@ -1,3 +1,4 @@
+
 public class Prueba1 {
     public static void main(String[] args) {
         ArbolBinarioDeBusquedaEnteros arbolito = new ArbolBinarioDeBusquedaEnteros();
@@ -39,21 +40,23 @@ public class Prueba1 {
         }
         System.out.println("La suma en PostOrden es:" + sumaPostOrden);
 
-        //Apartado iv
-        ArbolBinarioDeBusqueda<Integer> izda = arbolito.getSubArbolIzquierda();
-        ArbolBinarioDeBusquedaEnteros iz = (ArbolBinarioDeBusquedaEnteros) izda;
-        if (arbolito.getSubArbolIzquierda() != null ){
-            System.out.println("La suma de subArbolIzquierda es: " + iz.getSuma());
-        } else {
-            System.out.println("La suma de subArbolIzquierda es: " + 0);
+        //4
+        ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
+        i = i.convertir(arbolito.getSubArbolIzquierda());
+        if(i != null){
+            System.out.println("La suma de subarbol izquierdo es " + i.getSuma());
+        }else{
+            System.out.println("La suma de subarbol izquierdo es " + 0);
         }
-        ArbolBinarioDeBusqueda<Integer> dcha = arbolito.getSubArbolDerecha();
-        ArbolBinarioDeBusquedaEnteros dch = (ArbolBinarioDeBusquedaEnteros) dcha;
-        if (arbolito.getSubArbolDerecha() != null ){
-            System.out.println("La suma de subArbolDerecha es: " + dch.getSuma());
-        } else {
-            System.out.println("La suma de subArbolDerecha es: " + 0);
+        ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
+        d = d.convertir(arbolito.getSubArbolDerecha());
+        if(i != null){
+            System.out.println("La suma de subarbol derecho es" + d.getSuma());
+        }else{
+            System.out.println("La suma de subarbol derecho es" + 0);
         }
+        /*La suma no da lo mismo, pues al meter los numeros en orden (de menor a mayor), solo metera por lado mayor (derecha),
+         donde por izquierda no habra nada. */
 
         // Apartado v
         int altura = arbolito.getAltura();
