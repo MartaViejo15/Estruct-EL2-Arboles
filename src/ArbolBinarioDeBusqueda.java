@@ -145,6 +145,37 @@ public class ArbolBinarioDeBusqueda <v extends Comparable<v>> {
         }
     }
 
+    public boolean isArbolCasiCompleto(){
+        if(this.raiz == null){
+            return false;
+        }
+        Lista<v> res = new Lista<>();
+        CasiCompleto(raiz ,res);
+        return res.N_elementos-1 == getAltura();
+    }
+    private void CasiCompleto(NodoBinarioDeBusqueda<v> n, Lista<v> l) {
+        if(n != null){
+            if(n.getGrado() == 0){
+                Lista<v> aux = getCamino(n);
+                if(l.N_elementos==0){
+                    while(aux.primero != null){
+                        l.add(aux.primero.dato);
+                        aux.primero = aux.primero.siguiente;
+                    }
+                }if (aux.N_elementos < l.N_elementos){
+                    while (l.primero != null){
+                        l.delete(l.primero.dato);
+                    }while (aux.primero != null){
+                        l.add(aux.primero.dato);
+                        aux.primero = aux.primero.siguiente;
+                    }
+                }
+            }
+            CasiCompleto(n.Menor, l);
+            CasiCompleto(n.Mayor, l);
+        }
+    }
+
     public void add(v valor){
         raiz = insertar(raiz, valor);
     }
