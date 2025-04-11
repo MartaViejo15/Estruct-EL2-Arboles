@@ -23,19 +23,4 @@ public class NodoArbolBinarioBusqueda<v> {
             return 0;
         }
     }
-    /*
-    public int getAltura(){
-        int contador = 0;
-        if (menor == null && mayor == null){   // Solo está la raíz
-            contador = 1;
-        } else if (menor != null && mayor != null){   // Tiene hijos mayor y menor
-            contador += 1;
-        } else if (menor != null && mayor == null){   // Tiene hijo menor
-            contador += 1;
-        } else if (menor == null && mayor != null){   // Tiene hijo mayor
-            contador += 1;
-        }
-        return contador;
-    }
-     */
 }

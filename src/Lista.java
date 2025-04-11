@@ -1,5 +1,3 @@
-import Sofia.Elemento;
-
 public class Lista<v> {
     //atributos
     protected Elemento<v> primero;

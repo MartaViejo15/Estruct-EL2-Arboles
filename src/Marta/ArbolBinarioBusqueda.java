@@ -4,7 +4,7 @@ public class ArbolBinarioBusqueda <v extends Comparable<v>> {
     protected NodoArbolBinarioBusqueda<v> raiz;
 
     public ArbolBinarioBusqueda() {
-        this.raiz = new NodoArbolBinarioBusqueda<v>(null);
+        this.raiz = new NodoArbolBinarioBusqueda<>(null);
     }
     public int getAltura(){
         Lista<v> ListaElem = getListaPreOrden(raiz);

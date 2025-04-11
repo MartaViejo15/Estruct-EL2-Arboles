@@ -42,10 +42,20 @@ public class Prueba {
         System.out.println("La suma en PostOrden es:" + sumaPostOrden);
 
         //Apartado iv
-        /*ArbolBinarioBusqueda<Integer> izda = arbolito.getSubArbolIzquierda();
+        ArbolBinarioBusqueda<Integer> izda = arbolito.getSubArbolIzquierda();
+        ArbolBinarioDeBusquedaEnteros iz = (ArbolBinarioDeBusquedaEnteros) izda;
+        if (arbolito.getSubArbolIzquierda() != null ){
+            System.out.println("La suma de subArbolIzquierda es: " + iz.getSuma());
+        } else {
+            System.out.println("La suma de subArbolIzquierda es: " + 0);
+        }
         ArbolBinarioBusqueda<Integer> dcha = arbolito.getSubArbolDerecha();
-        int sumaIzquierda = izda.getSuma();
-         */
+        ArbolBinarioDeBusquedaEnteros dch = (ArbolBinarioDeBusquedaEnteros) dcha;
+        if (arbolito.getSubArbolDerecha() != null ){
+            System.out.println("La suma de subArbolDerecha es: " + dch.getSuma());
+        } else {
+            System.out.println("La suma de subArbolDerecha es: " + 0);
+        }
 
         // Apartado v
         int altura = arbolito.getAltura();
@@ -53,10 +63,10 @@ public class Prueba {
 
         // Apartado vi
         Lista<Integer> camino110 = arbolito.getCamino(110);
-        System.out.println("el camino hasta 110 es:" + camino110);
+        System.out.println("El camino hasta 110 es:");
         Elemento<Integer> aux = camino110.cabeza;
         while (aux != null){
-            System.out.println(aux.getDato() + " ");
+            System.out.print(aux.getDato() + " ");
             aux = aux.getSiguiente();
         }
         System.out.println();

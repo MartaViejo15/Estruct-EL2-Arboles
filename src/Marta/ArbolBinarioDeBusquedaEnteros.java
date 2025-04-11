@@ -1,6 +1,9 @@
 package Marta;
 
 public class ArbolBinarioDeBusquedaEnteros extends ArbolBinarioBusqueda<Integer> {
+    public ArbolBinarioDeBusquedaEnteros() {
+        super();
+    }
     public int getSuma(){
         return sumarElem(raiz, 0);
     }
@@ -12,4 +15,5 @@ public class ArbolBinarioDeBusquedaEnteros extends ArbolBinarioBusqueda<Integer>
         suma = sumarElem(nodo.getMayor(), suma);
         return suma;
     }
+
 }
