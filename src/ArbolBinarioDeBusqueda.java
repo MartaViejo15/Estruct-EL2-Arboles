@@ -3,7 +3,7 @@ public class ArbolBinarioDeBusqueda <v extends Comparable<v>> {
     protected NodoBinarioDeBusqueda<v> raiz;
 
     public ArbolBinarioDeBusqueda() {
-        this.raiz = new NodoBinarioDeBusqueda<>(null);
+        this.raiz = null;
     }
     public int getAltura(){
         Lista<v> ListaElem = getListaPreOrden(raiz);
@@ -151,7 +151,7 @@ public class ArbolBinarioDeBusqueda <v extends Comparable<v>> {
         }
         Lista<v> res = new Lista<>();
         CasiCompleto(raiz ,res);
-        return res.N_elementos-1 == getAltura();
+        return res.N_elementos+1 == getAltura();
     }
     private void CasiCompleto(NodoBinarioDeBusqueda<v> n, Lista<v> l) {
         if(n != null){
@@ -180,7 +180,7 @@ public class ArbolBinarioDeBusqueda <v extends Comparable<v>> {
         raiz = insertar(raiz, valor);
     }
     public NodoBinarioDeBusqueda<v> insertar(NodoBinarioDeBusqueda<v> nodo, v valor){
-        if (nodo == null || nodo.elemento == null){
+        if (nodo == null){
             return new NodoBinarioDeBusqueda<>(valor);
         } else if (valor.compareTo(nodo.elemento) < 0){
             nodo.Menor = insertar(nodo.Menor, valor);

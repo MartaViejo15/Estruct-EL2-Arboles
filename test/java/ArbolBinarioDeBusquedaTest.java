@@ -15,6 +15,7 @@ class ArbolBinarioDeBusquedaTest {
     @Test
     void getCamino() {
         ArbolBinarioDeBusqueda<Integer> arbol = new ArbolBinarioDeBusqueda<>();
+        arbol.getCamino(null);
         arbol.add(0);
         arbol.getCamino(new NodoBinarioDeBusqueda<>(8));
         arbol.add(3);
@@ -108,8 +109,7 @@ class ArbolBinarioDeBusquedaTest {
     @Test
     void isArbolHomogeneo() {
         ArbolBinarioDeBusqueda<Integer> arbol = new ArbolBinarioDeBusqueda<>();
-        arbol.raiz = new NodoBinarioDeBusqueda<>(null);
-        arbol.isArbolHomogeneo();
+        assertFalse(arbol.isArbolHomogeneo());
         arbol.add(0);
         assertTrue(arbol.isArbolHomogeneo());
         arbol.add(5);
@@ -131,6 +131,7 @@ class ArbolBinarioDeBusquedaTest {
     @Test
     void isArbolCompleto() {
         ArbolBinarioDeBusqueda<Integer> arbol = new ArbolBinarioDeBusqueda<>();
+        assertFalse(arbol.isArbolCompleto());
         arbol.add(0);
         assertTrue(arbol.isArbolCompleto());
         arbol.add(5);
@@ -147,15 +148,16 @@ class ArbolBinarioDeBusquedaTest {
     @Test
     void isArbolCasiCompleto() {
         ArbolBinarioDeBusqueda<Integer> arbol = new ArbolBinarioDeBusqueda<>();
+        assertFalse(arbol.isArbolCasiCompleto());
         arbol.add(10);
         arbol.add(5);
         arbol.add(15);
         arbol.add(2);
         arbol.add(7);
+        arbol.add(1);
+        assertFalse(arbol.isArbolCasiCompleto());
         arbol.add(12);
         assertTrue(arbol.isArbolCasiCompleto());
-        arbol.add(13);
-        assertFalse(arbol.isArbolCasiCompleto());
     }
 
     @Test
