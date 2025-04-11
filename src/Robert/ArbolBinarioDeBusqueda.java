@@ -93,11 +93,11 @@ public class ArbolBinarioDeBusqueda<k extends Comparable<k>, v> {
     }
 
 
-    public lista getListaDatosNivel(nivel){
+    /*public lista getListaDatosNivel(nivel){
 
-    }
+    }*/
 
-    public boolean isArbolHomogeneo(){
+    /*public boolean isArbolHomogeneo(){
         return esHomogeneo(this.raiz);
     }
     private boolean esHomogeneo(NodoArbol<k,v> nodo){
@@ -113,7 +113,7 @@ public class ArbolBinarioDeBusqueda<k extends Comparable<k>, v> {
                 if
             }
         }
-    }
+    }*/
 
     public ArbolBinarioDeBusqueda<k,v> getSubArbolIzquierda(){
         ArbolBinarioDeBusqueda<k,v> subArbolIzq = new ArbolBinarioDeBusqueda<>();
