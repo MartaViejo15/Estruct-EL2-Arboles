@@ -52,21 +52,23 @@ public class Prueba2 {
         System.out.println("La suma en PostOrden es:" + sumaPostOrden);
 
         //4
-        ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
-        i = i.convertir(a.getSubArbolIzquierda());
-        if(i != null){
+        if(a.getSubArbolIzquierda()!=null){
+            ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
+            i = i.convertir(a.getSubArbolIzquierda());
             System.out.println("La suma de subarbol izquierdo es " + i.getSuma());
         }else{
             System.out.println("La suma de subarbol izquierdo es " + 0);
         }
-        ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
-        d = d.convertir(a.getSubArbolDerecha());
-        if(i != null){
+        if(a.getSubArbolDerecha() != null){
+            ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
+            d = d.convertir(a.getSubArbolDerecha());
             System.out.println("La suma de subarbol derecho es " + d.getSuma());
         }else{
             System.out.println("La suma de subarbol derecho es " + 0);
         }
-        /* Estos errores no se pueden dejar al 100% de cobertura porque se puede dar el caso de error */
+        /* Estos errores no se pueden dejar al 100% de cobertura porque se puede dar el caso de error,
+        si los numeros aleatorios entran exactamente de forma 0 al 128 o 128 al 0.
+        Aunque la posibilidad esta sea muy pequeña, dejo el codigo sin error. */
 
         /*La suma de los subárboles salen cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
         los árboles que obtenemos cada vez al ejecutarlo serán diferentes. */

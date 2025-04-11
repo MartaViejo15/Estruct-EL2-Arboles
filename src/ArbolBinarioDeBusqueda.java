@@ -1,4 +1,3 @@
-
 public class ArbolBinarioDeBusqueda <v extends Comparable<v>> {
     protected NodoBinarioDeBusqueda<v> raiz;
 

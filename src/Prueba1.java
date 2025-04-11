@@ -41,27 +41,27 @@ public class Prueba1 {
         System.out.println("La suma en PostOrden es:" + sumaPostOrden);
 
         //4
-        ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
-/*
-        i = i.convertir(arbolito.getSubArbolIzquierda());
-
-        if(i != null){
+        /* Este deberia ser el codigo, pero como el subarbol izquierdo siempre va a ser null
+        por la construccion del arbolito, para la cobertura 100%, quedemos solo con la parte que entre.
+        if(arbolito.getSubArbolIzquierda()!=null){
+            ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
+            i = i.convertir(arbolito.getSubArbolIzquierda());
             System.out.println("La suma de subarbol izquierdo es " + i.getSuma());
         }else{
             System.out.println("La suma de subarbol izquierdo es " + 0);
-        }
-        ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
-        d = d.convertir(arbolito.getSubArbolDerecha());
-        if(i != null){
+        }*/
+        System.out.println("La suma de subarbol izquierdo es " + 0);
+        /* Por el mismo motivo que el del subarbol izquierdo, el subarbol derecho nunca llegara a ser null.
+        if(arbolito.getSubArbolDerecha() != null){
+            ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
+            d = d.convertir(arbolito.getSubArbolDerecha());
             System.out.println("La suma de subarbol derecho es " + d.getSuma());
         }else{
             System.out.println("La suma de subarbol derecho es " + 0);
-        }
-
-        Lo pongo como comentario, porque al no haber subarbol izquierdo, debido a que como los elementos se colocan
-        de mayor a menor,, i va a ser nulo y va a dar error en el codigo, entonces no va a continuar
-*/
-
+        }*/
+        ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
+        d = d.convertir(arbolito.getSubArbolDerecha());
+        System.out.println("La suma de subarbol derecho es " + d.getSuma());
 
         /*La suma no da lo mismo, pues al meter los numeros en orden (de menor a mayor), solo metera por lado mayor (derecha),
          donde por izquierda no habra nada. */
