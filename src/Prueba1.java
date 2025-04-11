@@ -51,10 +51,12 @@ public class Prueba1 {
         ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
         d = d.convertir(arbolito.getSubArbolDerecha());
         if(i != null){
-            System.out.println("La suma de subarbol derecho es" + d.getSuma());
+            System.out.println("La suma de subarbol derecho es " + d.getSuma());
         }else{
-            System.out.println("La suma de subarbol derecho es" + 0);
+            System.out.println("La suma de subarbol derecho es " + 0);
         }
+
+
         /*La suma no da lo mismo, pues al meter los numeros en orden (de menor a mayor), solo metera por lado mayor (derecha),
          donde por izquierda no habra nada. */
 

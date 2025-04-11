@@ -11,8 +11,7 @@ public class NodoArbol<k extends Comparable<k>,v> {
     public NodoArbol(k clave, v valor) {
         this.clave = clave;
         this.valor = valor;
-        this.menor = null;
-        this.mayor = null;
+
     }
 
     public k getClave() {
@@ -44,17 +43,13 @@ public class NodoArbol<k extends Comparable<k>,v> {
     }
 
     public int getGrado(){
-        int Temporal = 0;
-        if(this.getMenor() != null && this.getMayor() != null){
-            Temporal = 2;
-        }else if(this.getMenor() != null || this.getMayor() != null){
-            Temporal = 1;
+        if(menor != null && mayor != null){
+            return 2;
+        }else if(this.menor != null || mayor != null){
+            return 1;
         }else
-            Temporal = 0;
-        return Temporal;
+            return 0;
     }
-
-
 }
 
 

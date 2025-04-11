@@ -66,6 +66,8 @@ public class Prueba2 {
         }else{
             System.out.println("La suma de subarbol derecho es " + 0);
         }
+        /* Estos errores no se pueden dejar al 100% de cobertura porque se puede dar el caso de error */
+
         /*La suma de los subárboles salen cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
         los árboles que obtenemos cada vez al ejecutarlo serán diferentes. */
 
@@ -87,6 +89,7 @@ public class Prueba2 {
 
         /*
         Explique las diferencias (si las ha habido) de los resultados obtenidos entre los dos programas de prueba.
+
         La suma en ambos casos es la misma, puesto que tenemos los mismos datos (los números de 0 a 128).
         La suma de los subárboles de izquierda y derecha va a ser la misma únicamente en el caso en el que en la prueba2, los
         datos que se generan aleatoriamente se generen justo en orden, del 0 al 128.
@@ -98,6 +101,7 @@ public class Prueba2 {
         ordenados, el camino hasta llegar al 110 continuará siendo el mismo. La longitud será, al igual, distinta.
 
         ¿Qué sucede con los resultados si ejecuta los programas de prueba varias veces?
+
         La primera siempre será igual, mientras que las demás irán cambiando dependiendo del orden aleatorio en el que se metan
         los números.
          */

@@ -80,8 +80,10 @@ public class ArbolBinarioDeBusqueda<k extends Comparable<k>, v> {
             return 0;
         }else{
             NodoArbol<k,v> aux = nodo;
-            int alturaIzq = calcularAltura(aux.getMenor());
-            int alturaDer = calcularAltura(aux.getMayor());
+            int alturaIzq = 0;
+            alturaIzq += calcularAltura(aux.getMenor());
+            int alturaDer = 0;
+            alturaDer += calcularAltura(aux.getMayor());
             if(alturaIzq > alturaDer){
                 return 1 + alturaIzq;
             } else if (alturaIzq < alturaDer) {
@@ -127,41 +129,46 @@ public class ArbolBinarioDeBusqueda<k extends Comparable<k>, v> {
         return subArbolDer;
     }
 
-    public ListaSE<k> getListaPreOrden(){
-        ListaSE<k> lista = new ListaSE<>();
+    public ListaSE<v> getListaPreOrden(){
+        ListaSE<v> lista = new ListaSE<>();
         preOrden(this.raiz,lista);
         return lista;
     }
-    private void preOrden(NodoArbol<k,v> nodo, ListaSE<k> lista){
+    private void preOrden(NodoArbol<k,v> nodo, ListaSE<v> lista){
         if(nodo != null){
-            lista.add(nodo.getClave());
+            lista.add(nodo.getValor());
             preOrden(nodo.getMenor(),lista);
             preOrden(nodo.getMayor(),lista);
         }
     }
 
-    public ListaSE<k> getListaPostOrden(){
-        ListaSE<k> lista = new ListaSE<>();
+    public ListaSE<v> getListaPostOrden(){
+        ListaSE<v> lista = new ListaSE<>();
         postOrden(this.raiz,lista);
         return lista;
     }
-    private void postOrden(NodoArbol<k,v> nodo, ListaSE<k> lista){
+    private void postOrden(NodoArbol<k,v> nodo, ListaSE<v> lista){
         if(nodo != null){
             postOrden(nodo.getMenor(),lista);
             postOrden(nodo.getMayor(),lista);
-            System.out.println(nodo.getMayor());
+            lista.add(nodo.getValor());
         }
     }
 
-    public ListaSE<k> getListaOrdenCentral(){
-        ListaSE<k> lista = new ListaSE<>();
+    public ListaSE<v> getListaOrdenCentral(){
+        ListaSE<v> lista = new ListaSE<>();
         ordenCentral(this.raiz,lista);
         return lista;
     }
-    private void ordenCentral(NodoArbol<k,v> nodo, ListaSE<k> lista){
-        ordenCentral(nodo.getMenor(),lista);
-        lista.add(nodo.getClave());
-        ordenCentral(nodo.getMayor(),lista);
+    private void ordenCentral(NodoArbol<k,v> nodo, ListaSE<v> lista){
+        if(nodo != null){
+            ordenCentral(nodo.getMenor(),lista);
+            lista.add(nodo.getValor());
+            ordenCentral(nodo.getMayor(),lista);
+
+        }
     }
+
+
 }
 
