@@ -30,4 +30,10 @@ class ArbolBinarioDeBusquedaEnterosTest {
         a.add(3);
         assertEquals(6,a.getSuma_PostOrden());
     }
+
+    @Test
+    void convertir() {
+        ArbolBinarioDeBusqueda<Integer> b = new ArbolBinarioDeBusqueda<>();
+        a.convertir(b);
+    }
 }
