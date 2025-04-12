@@ -67,10 +67,10 @@ public class Prueba2 {
             System.out.println("La suma de subarbol derecho es " + 0);
         }
         /* Estos errores no se pueden dejar al 100% de cobertura porque se puede dar el caso de error,
-        si los numeros aleatorios entran exactamente de forma 0 al 128 o 128 al 0.
-        Aunque la posibilidad esta sea muy pequeña, dejo el codigo sin error. */
+        si los números aleatorios entran exactamente de forma 0 al 128 o 128 al 0.
+        Aunque la posibilidad esta sea muy pequeña, dejo el código sin error. */
 
-        /*La suma de los subárboles salen cada vez diferente, ya que como hemos metido los dato de forma aleatoria,
+        /*La suma de los subárboles salen cada vez diferente, ya que como hemos metido los datos de forma aleatoria,
         los árboles que obtenemos cada vez al ejecutarlo serán diferentes. */
 
         //5
@@ -101,6 +101,7 @@ public class Prueba2 {
         El camino va a ser siempre distinto, puesto que al generar los números de forma aleatoria siempre va a ser distinto,
         pero nos encontramos en un caso igual a los dos anteriores, si se ha generado de forma aleatoria y coincide que están
         ordenados, el camino hasta llegar al 110 continuará siendo el mismo. La longitud será, al igual, distinta.
+
 
         ¿Qué sucede con los resultados si ejecuta los programas de prueba varias veces?
 

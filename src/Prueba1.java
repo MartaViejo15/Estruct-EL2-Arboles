@@ -41,8 +41,8 @@ public class Prueba1 {
         System.out.println("La suma en PostOrden es:" + sumaPostOrden);
 
         //4
-        /* Este deberia ser el codigo, pero como el subarbol izquierdo siempre va a ser null
-        por la construccion del arbolito, para la cobertura 100%, quedemos solo con la parte que entre.
+        /* Este debería ser el código, pero como el subárbol izquierdo siempre va a ser null
+        por la construcción del arbolito, para la cobertura 100%, quedemos solo con la parte que entre.
         if(arbolito.getSubArbolIzquierda()!=null){
             ArbolBinarioDeBusquedaEnteros i = new ArbolBinarioDeBusquedaEnteros();
             i = i.convertir(arbolito.getSubArbolIzquierda());
@@ -51,7 +51,7 @@ public class Prueba1 {
             System.out.println("La suma de subarbol izquierdo es " + 0);
         }*/
         System.out.println("La suma de subarbol izquierdo es " + 0);
-        /* Por el mismo motivo que el del subarbol izquierdo, el subarbol derecho nunca llegara a ser null.
+        /* Por el mismo motivo que el del subárbol izquierdo, el subárbol derecho nunca llegara a ser null.
         if(arbolito.getSubArbolDerecha() != null){
             ArbolBinarioDeBusquedaEnteros d = new ArbolBinarioDeBusquedaEnteros();
             d = d.convertir(arbolito.getSubArbolDerecha());
@@ -63,8 +63,8 @@ public class Prueba1 {
         d = d.convertir(arbolito.getSubArbolDerecha());
         System.out.println("La suma de subarbol derecho es " + d.getSuma());
 
-        /*La suma no da lo mismo, pues al meter los numeros en orden (de menor a mayor), solo metera por lado mayor (derecha),
-         donde por izquierda no habra nada. */
+        /*La suma no da lo mismo, pues al meter los números en orden (de menor a mayor), solo meterá por el lado mayor(derecha),
+         donde por la izquierda no habrá nada. */
 
         // Apartado v
         int altura = arbolito.getAltura();
